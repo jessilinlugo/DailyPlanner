@@ -1,7 +1,9 @@
 $(document).ready(function () {
 
     //this saves the inputted text to local storage + onto the page
-    $(".saveBtn").on("click", function(){
+    $(".saveBtn").on("click", function () {
+
+        //"this" uses the $(".saveBtn") variable without actually typing it all out
         var time = $(this).attr("id");
         var value = $(this).siblings(".description").val();
 
@@ -11,26 +13,32 @@ $(document).ready(function () {
     })
 
     //pulls value out of local storage and puts it in text area
-    for (var i = 7; i <= 22; i++){
+    for (var i = 7; i <= 22; i++) {
         $(`#${i}`).siblings("textarea").val(localStorage.getItem(i));
     };
 
-    function checkHour (){
-        
+
+    //this function checks the time of day and highlights the planner accordingly
+    function checkHour() {
+
+        //this checks the current hour of the day
         var currentHour = moment().hours();
 
-        $("button").each(function() {
+        //grabs the button from HTML
+        $("button").each(function () {
+            //this creates a variable selecting the ID attribute from the button HTML element 
             var elementHour = $(this).attr("id");
-            
-            if (currentHour == elementHour){
+            // if the current time equals the value of the element hour the present class will be applied
+            if (currentHour == elementHour) {
                 $(this).siblings("textarea").removeClass("past future")
                 $(this).siblings("textarea").addClass("present")
             }
-            else if (currentHour > elementHour){
+            //if the current time has exceeded the value of the element hour, the past class will be applied
+            else if (currentHour > elementHour) {
                 $(this).siblings("textarea").removeClass("future present")
                 $(this).siblings("textarea").addClass("past")
-            }
-            else if (currentHour < elementHour){
+            }//if the current time is below the value of the element hour, the future class will be applied
+            else if (currentHour < elementHour) {
                 $(this).siblings("textarea").removeClass("present past")
                 $(this).siblings("textarea").addClass("future")
             }
@@ -40,9 +48,10 @@ $(document).ready(function () {
 
     }
 
+    //this executes the function to check the time
     checkHour()
 
-
+    //this puts the current day's date below the title 
     $("#currentDay").text(moment().format("dddd, MMMM Do"));
 
 });
@@ -65,7 +74,7 @@ $(document).ready(function () {
     //     //this adds the newly created spaces to the page
     //     container.append(timeBlock);
 
-        
+
 
     // }
 

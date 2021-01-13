@@ -1,7 +1,7 @@
 # DailyPlanner
 
 Link to my Daily Planner : https://jessilinlugo.github.io/DailyPlanner/ 
-
+Technologies Used : HTML,  CSS, Javascript, Bootstrap, Font-Awesome icon library
 ------------
 
 I am so thankful for review. Slowly my muscle memory is kicking in and I'm having to look things up less and less frequently. 
